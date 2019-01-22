@@ -18,7 +18,7 @@ notifications:
   email: false
 sudo: false
 
- addons:
+addons:
   postgresql: "10"
   apt:
     packages:
@@ -27,3 +27,4 @@ sudo: false
 env:
   global:
   - PGPORT=5433
+

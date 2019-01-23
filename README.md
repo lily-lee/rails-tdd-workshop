@@ -23,6 +23,8 @@ https://github.com/rubocop-hq/rspec-style-guide
 
 # 步骤
 
+## 2019.01.16
+
 1. 初始化一个rails项目
 
 ```bash
@@ -71,3 +73,9 @@ $ rails g controller home index
 
 
 8. add .travis.yml
+
+
+
+## 2019.01.23
+
+

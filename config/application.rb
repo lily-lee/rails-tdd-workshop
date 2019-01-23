@@ -38,6 +38,5 @@ module RailsTddWorkshop
       g.javascripts false
       g.helper false
     end
-    
   end
 end

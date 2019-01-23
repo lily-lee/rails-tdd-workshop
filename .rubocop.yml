@@ -10,118 +10,118 @@ AllCops:
     - 'railties/test/fixtures/tmp/**/*'
     - 'node_modules/**/*'
 
- Performance:
+Performance:
   Exclude:
     - '**/test/**/*'
 
- Rails:
+Rails:
   Enabled: true
 
- # Prefer assert_not over assert !
+# Prefer assert_not over assert !
 Rails/AssertNot:
   Include:
     - '**/test/**/*'
 
- # Prefer assert_not_x over refute_x
+# Prefer assert_not_x over refute_x
 Rails/RefuteMethods:
   Include:
     - '**/test/**/*'
 
- # Prefer &&/|| over and/or.
+# Prefer &&/|| over and/or.
 Style/AndOr:
   Enabled: true
 
- # Do not use braces for hash literals when they are the last argument of a
+# Do not use braces for hash literals when they are the last argument of a
 # method call.
 Style/BracesAroundHashParameters:
   Enabled: true
   EnforcedStyle: context_dependent
 
- # Align `when` with `case`.
+# Align `when` with `case`.
 Layout/CaseIndentation:
   Enabled: true
 
- # Align comments with method definitions.
+# Align comments with method definitions.
 Layout/CommentIndentation:
   Enabled: true
 
- Layout/ElseAlignment:
+Layout/ElseAlignment:
   Enabled: true
 
- # Align `end` with the matching keyword or starting expression except for
+# Align `end` with the matching keyword or starting expression except for
 # assignments, where it should be aligned with the LHS.
 Layout/EndAlignment:
   Enabled: true
   EnforcedStyleAlignWith: variable
   AutoCorrect: true
 
- Layout/EmptyLineAfterMagicComment:
+Layout/EmptyLineAfterMagicComment:
   Enabled: true
 
- Layout/EmptyLinesAroundBlockBody:
+Layout/EmptyLinesAroundBlockBody:
   Enabled: false
 
- # In a regular class definition, no empty lines around the body.
+# In a regular class definition, no empty lines around the body.
 Layout/EmptyLinesAroundClassBody:
   Enabled: true
 
- # In a regular method definition, no empty lines around the body.
+# In a regular method definition, no empty lines around the body.
 Layout/EmptyLinesAroundMethodBody:
   Enabled: true
 
- # In a regular module definition, no empty lines around the body.
+# In a regular module definition, no empty lines around the body.
 Layout/EmptyLinesAroundModuleBody:
   Enabled: true
 
- Layout/FirstParameterIndentation:
+Layout/FirstParameterIndentation:
   Enabled: true
 
- # Use Ruby >= 1.9 syntax for hashes. Prefer { a: :b } over { :a => :b }.
+# Use Ruby >= 1.9 syntax for hashes. Prefer { a: :b } over { :a => :b }.
 Style/HashSyntax:
   Enabled: true
 
- # Method definitions after `private` or `protected` isolated calls need one
+# Method definitions after `private` or `protected` isolated calls need one
 # extra level of indentation.
 Layout/IndentationConsistency:
   Enabled: true
   EnforcedStyle: rails
 
- # Two spaces, no tabs (for indentation).
+# Two spaces, no tabs (for indentation).
 Layout/IndentationWidth:
   Enabled: true
 
- Layout/LeadingCommentSpace:
+Layout/LeadingCommentSpace:
   Enabled: true
 
- Layout/SpaceAfterColon:
+Layout/SpaceAfterColon:
   Enabled: true
 
- Layout/SpaceAfterComma:
+Layout/SpaceAfterComma:
   Enabled: true
 
- Layout/SpaceAroundEqualsInParameterDefault:
+Layout/SpaceAroundEqualsInParameterDefault:
   Enabled: true
 
- Layout/SpaceAroundKeyword:
+Layout/SpaceAroundKeyword:
   Enabled: true
 
- Layout/SpaceAroundOperators:
+Layout/SpaceAroundOperators:
   Enabled: true
 
- Layout/SpaceBeforeComma:
+Layout/SpaceBeforeComma:
     Enabled: true
 
- Layout/SpaceBeforeFirstArg:
+Layout/SpaceBeforeFirstArg:
     Enabled: true
 
- Style/DefWithParentheses:
+Style/DefWithParentheses:
   Enabled: true
 
- # Defining a method with parameters needs parentheses.
+# Defining a method with parameters needs parentheses.
 Style/MethodDefParentheses:
   Enabled: true
 
- Style/FrozenStringLiteralComment:
+Style/FrozenStringLiteralComment:
   Enabled: false
   EnforcedStyle: when_needed
   Exclude:
@@ -131,91 +131,91 @@ Style/MethodDefParentheses:
     - 'actionpack/test/**/*.ruby'
     - 'activestorage/db/migrate/**/*.rb'
 
- Style/RedundantFreeze:
+Style/RedundantFreeze:
   Enabled: true
   Exclude:
     - 'actionpack/lib/action_dispatch/journey/router/utils.rb'
     - 'activerecord/lib/active_record/connection_adapters/sqlite3_adapter.rb'
 
- # Use `foo {}` not `foo{}`.
+# Use `foo {}` not `foo{}`.
 Layout/SpaceBeforeBlockBraces:
   Enabled: true
 
- # Use `foo { bar }` not `foo {bar}`.
+# Use `foo { bar }` not `foo {bar}`.
 Layout/SpaceInsideBlockBraces:
   Enabled: true
   EnforcedStyleForEmptyBraces: space
 
- # Use `{ a: 1 }` not `{a:1}`.
+# Use `{ a: 1 }` not `{a:1}`.
 Layout/SpaceInsideHashLiteralBraces:
   Enabled: true
 
- Layout/SpaceInsideParens:
+Layout/SpaceInsideParens:
   Enabled: true
 
- # Check quotes usage according to lint rule below.
+# Check quotes usage according to lint rule below.
 Style/StringLiterals:
   Enabled: false
   # EnforcedStyle: double_quotes
 
- # Detect hard tabs, no hard tabs.
+# Detect hard tabs, no hard tabs.
 Layout/Tab:
   Enabled: true
 
- # Blank lines should not have any spaces.
+# Blank lines should not have any spaces.
 Layout/TrailingBlankLines:
   Enabled: true
 
- # No trailing whitespace.
+# No trailing whitespace.
 Layout/TrailingWhitespace:
   Enabled: true
 
- # Use quotes for string literals when they are enough.
+# Use quotes for string literals when they are enough.
 Style/UnneededPercentQ:
   Enabled: true
 
- # Use my_method(my_arg) not my_method( my_arg ) or my_method my_arg.
+# Use my_method(my_arg) not my_method( my_arg ) or my_method my_arg.
 Lint/RequireParentheses:
   Enabled: true
 
- Lint/StringConversionInInterpolation:
+Lint/StringConversionInInterpolation:
   Enabled: true
 
- Lint/UriEscapeUnescape:
+Lint/UriEscapeUnescape:
   Enabled: true
 
- Style/ParenthesesAroundCondition:
+Style/ParenthesesAroundCondition:
   Enabled: true
 
- Style/RedundantReturn:
+Style/RedundantReturn:
   Enabled: true
   AllowMultipleReturnValues: true
 
- Style/Semicolon:
+Style/Semicolon:
   Enabled: true
   AllowAsExpressionSeparator: true
 
- # Prefer Foo.method over Foo::method
+# Prefer Foo.method over Foo::method
 Style/ColonMethodCall:
   Enabled: true
 
- Style/TrivialAccessors:
+Style/TrivialAccessors:
   Enabled: true
 
- Performance/FlatMap:
+Performance/FlatMap:
   Enabled: true
 
- Performance/RedundantMerge:
+Performance/RedundantMerge:
   Enabled: true
 
- Performance/StartWith:
+Performance/StartWith:
   Enabled: true
 
- Performance/EndWith:
+Performance/EndWith:
   Enabled: true
 
- Performance/RegexpMatch:
+Performance/RegexpMatch:
   Enabled: true
 
- Performance/UnfreezeString:
+Performance/UnfreezeString:
   Enabled: true

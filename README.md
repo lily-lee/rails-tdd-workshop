@@ -30,22 +30,6 @@ $ rails new tdd-workshop --database=postgresql --skip-active-storage --skip-coff
 ```
 
 
-$ rails db:migrate
-$ rails db:setup
-
-$ rails generate rspec:install
-
-# add rubocop config and rake task
-
-# 在.rspect文件中加入--color
-
-# 生成路由
-$ rails g controller home index
-
-# add .travis.yml
-
-
-
 2. 修改Gemfile，安装依赖
 
 ```bash

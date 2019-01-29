@@ -1,6 +1,6 @@
 # TDD Workshop
 
-[![Build Status](https://travis-ci.com/lily-lee/rails-tdd-workshop.svg?branch=master)](https://travis-ci.com/lily-lee/rails-tdd-workshop)
+[![Build Status](https://travis-ci.com/lily-lee/rails-tdd-workshop.svg?branch=master)](https://travis-ci.com/lily-lee/rails-tdd-workshop)[![Coverage Status](https://coveralls.io/repos/github/lily-lee/rails-tdd-workshop/badge.svg?branch=master)](https://coveralls.io/github/lily-lee/rails-tdd-workshop?branch=master)
 
 # 资料
 

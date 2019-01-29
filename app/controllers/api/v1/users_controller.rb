@@ -16,7 +16,12 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def update
-    user = User.find_by(id: params[:id])
+    user = User.find_by_id params[:id]
+
+    if user.blank?
+      return render json: { errors: "not found" }, status: 404
+    end
+
     if user.update user_params
       render json: user, status: 200
     else
@@ -25,13 +30,13 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def destroy
-    user = User.find_by_id(params[:id])
+    user = User.find_by_id params[:id]
     if user.blank?
-      render json: { errors: "not found" }, status: 404
+      return render json: { errors: "not found" }, status: 404
     end
 
     if user.destroy
-      render json: {}, status: 204
+      head 204
     else
       render json: { errors: user.errors }, status: 422
     end

@@ -30,7 +30,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
       end
     end
 
-    context 'when cfreated failed' do
+    context 'when created failed' do
       before :each do
         @invalid_user_attributes = { password: '123456', password_confirmation: '123456' }
         post :create, params: { user: @invalid_user_attributes }
@@ -55,6 +55,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
     context 'when updated successfully' do
       before :each do
         @user = create :user
+        api_authorization_header @user.auth_token
         @user_attributes = { email: 'newtest@sudiyi.cn' }
         put :update, params: { id: @user.id, user: @user_attributes }
       end
@@ -70,6 +71,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
     context 'when email is nil, it should be updated failed' do
       before :each do
         @user = create :user
+        api_authorization_header @user.auth_token
         @user_attributes = { email: nil }
         put :update, params: { id: @user.id, user: @user_attributes }
       end
@@ -94,7 +96,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
         put :update, params: { id: 0, user: @user_attributes }
       end
 
-      it { should respond_with 404 }
+      it { should respond_with 401 }
 
       it 'render errors json' do
         # binding.pry
@@ -104,7 +106,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
 
       it 'render errors json with details message' do
         json_response = JSON.parse response.body, symbolize_names: true
-        expect(json_response[:errors]).to include("not found")
+        expect(json_response[:errors]).to include("Not authenticated")
       end
     end
   end
@@ -113,6 +115,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
     context 'when destroy successfully' do
       before :each do
         @user = create :user
+        api_authorization_header @user.auth_token
         delete :destroy, params: { id: @user.id }
       end
 
@@ -124,7 +127,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
         delete :destroy, params: { id: 0 }
       end
 
-      it { should respond_with 404 }
+      it { should respond_with 401 }
 
       it 'render errors json' do
         # binding.pry
@@ -134,7 +137,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
 
       it 'render errors json with details message' do
         json_response = JSON.parse response.body, symbolize_names: true
-        expect(json_response[:errors]).to include("not found")
+        expect(json_response[:errors]).to include("Not authenticated")
       end
     end
   end

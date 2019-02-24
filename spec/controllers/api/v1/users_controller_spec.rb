@@ -10,8 +10,8 @@ RSpec.describe Api::V1::UsersController, type: :controller do
     it { should respond_with 200 }
 
     it 'returns a user reponse' do
-      json_response = JSON.parse response.body, symbolize_names: true
-      expect(json_response[:email]).to eq @user.email
+      # binding.pry
+      expect(json_response[:data][:attributes][:email]).to eq @user.email
     end
   end
 
@@ -25,8 +25,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
       it { should respond_with 201 }
 
       it 'returns the user record just created' do
-        json_response = JSON.parse response.body, symbolize_names: true
-        expect(json_response[:email]).to eq @user_attributes[:email]
+        expect(json_response[:data][:attributes][:email]).to eq @user_attributes[:email]
       end
     end
 
@@ -40,13 +39,12 @@ RSpec.describe Api::V1::UsersController, type: :controller do
 
       it 'render errors json' do
         # binding.pry
-        json_response = JSON.parse response.body, symbolize_names: true
         expect(json_response).to have_key(:errors)
       end
 
       it 'render errors json with details message' do
-        json_response = JSON.parse response.body, symbolize_names: true
-        expect(json_response[:errors][:email]).to include("can't be blank")
+        # binding.pry
+        expect(json_response[:errors].first[:detail]).to include("can't be blank")
       end
     end
   end
@@ -63,8 +61,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
       it { should respond_with 200 }
 
       it 'returns a user reponse' do
-        json_response = JSON.parse response.body, symbolize_names: true
-        expect(json_response[:email]).to eq @user_attributes[:email]
+        expect(json_response[:data][:attributes][:email]).to eq @user_attributes[:email]
       end
     end
 
@@ -80,13 +77,11 @@ RSpec.describe Api::V1::UsersController, type: :controller do
 
       it 'render errors json' do
         # binding.pry
-        json_response = JSON.parse response.body, symbolize_names: true
         expect(json_response).to have_key(:errors)
       end
 
       it 'render errors json with details message' do
-        json_response = JSON.parse response.body, symbolize_names: true
-        expect(json_response[:errors][:email]).to include("can't be blank")
+        expect(json_response[:errors].first[:detail]).to include("can't be blank")
       end
     end
 
@@ -100,12 +95,10 @@ RSpec.describe Api::V1::UsersController, type: :controller do
 
       it 'render errors json' do
         # binding.pry
-        json_response = JSON.parse response.body, symbolize_names: true
         expect(json_response).to have_key(:errors)
       end
 
       it 'render errors json with details message' do
-        json_response = JSON.parse response.body, symbolize_names: true
         expect(json_response[:errors]).to include("Not authenticated")
       end
     end
@@ -131,12 +124,10 @@ RSpec.describe Api::V1::UsersController, type: :controller do
 
       it 'render errors json' do
         # binding.pry
-        json_response = JSON.parse response.body, symbolize_names: true
         expect(json_response).to have_key(:errors)
       end
 
       it 'render errors json with details message' do
-        json_response = JSON.parse response.body, symbolize_names: true
         expect(json_response[:errors]).to include("Not authenticated")
       end
     end

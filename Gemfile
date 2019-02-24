@@ -34,6 +34,7 @@ gem 'turbolinks', '~> 5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'devise'
+gem 'fast_jsonapi'
 
 gem 'coveralls', require: false
 

@@ -20,6 +20,8 @@ RSpec.describe User, type: :model do
   it { should validate_confirmation_of :password }
   it { should allow_value('example@domain.com').for(:email) }
 
+  it { should have_many :toys }
+
   describe '#generate_authentication_token' do
     it "should generate a unique token" do
       allow(Devise).to receive(:friendly_token).and_return('uniquetoken123')

@@ -13,7 +13,7 @@ class Api::V1::UsersController < ApplicationController
       render json: UserSerializer.new(user), status: 201
     else
       # binding.pry
-      render json: { errors: ErrorSerializer.new(user).serialized_json}, status: 422
+      render json: { errors: ErrorSerializer.new(user).serialized_json }, status: 422
     end
   end
 

@@ -4,6 +4,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
   describe 'Get #show' do
     before :each do
       @user = create :user
+      4.times { create :toy, user: @user }
       get :show, params: { id: @user.id }
     end
 
@@ -12,6 +13,11 @@ RSpec.describe Api::V1::UsersController, type: :controller do
     it 'returns a user reponse' do
       # binding.pry
       expect(json_response[:data][:attributes][:email]).to eq @user.email
+    end
+
+    it "should returns toys in user" do
+      # binding.pry
+      expect(json_response[:data][:relationships][:toys][:data].count).to eq @user.toys.count
     end
   end
 
